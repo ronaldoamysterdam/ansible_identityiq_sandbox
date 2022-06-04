@@ -5,14 +5,14 @@
 - name: unpack war file
   unarchive: src=../files/identityiq.war dest=/usr/share/tomcat/webapps/identityiq remote_src=no
   
-- name: update sql-script
-  template: src=../templates/create.mysql dest=/usr/share/tomcat/webapps/identityiq/WEB-INF/database/create_identityiq_tables-7.0.mysql owner=tomcat group=tomcat
+# - name: update sql-script
+#   template: src=../templates/create.mysql dest=/usr/share/tomcat/webapps/identityiq/WEB-INF/database/create_identityiq_tables-7.0.mysql owner=tomcat group=tomcat
   
   # Extended Searchable Attributes in: webapps/identityiq/WEBINF/classes/sailpoint/object/IdentityExtended.hbm.xml
   # Generate schema: ./iiq schema
   
-- name: create database 
-  shell: mysql -u root --password={{ mysql_root_password }} < /usr/share/tomcat/webapps/identityiq/WEB-INF/database/create_identityiq_tables-7.0.mysql > /usr/share/tomcat/webapps/identityiq/WEB-INF/database/mysql.out
+# - name: create database 
+#   shell: mysql -u root --password={{ mysql_root_password }} < /usr/share/tomcat/webapps/identityiq/WEB-INF/database/create_identityiq_tables-7.0.mysql > /usr/share/tomcat/webapps/identityiq/WEB-INF/database/mysql.out
 
 - name: update connect to database
   template: src=../templates/iiq.properties dest=/usr/share/tomcat/webapps/identityiq/WEB-INF/classes/iiq.properties owner=tomcat group=tomcat

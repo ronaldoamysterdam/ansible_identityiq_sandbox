@@ -1,0 +1,10 @@
+#####Obs: Precisar estar dentro da pasta ansible
+
+#Validar acesso na maquina
+ansible all --private-key=./Ultima.pem -m ping -i ./hosts -u azureuser
+
+#Check ansible
+ansible-playbook --private-key=./Ultima.pem playbook.yml -i ./hosts -u azureuser --check
+
+#URL JAVA
+https://www.oracle.com/sg/java/technologies/javase/javase8-archive-downloads.html
